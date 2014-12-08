@@ -14,6 +14,7 @@ before_install:
   - sudo echo "host    all         all         ::1/128               trust" >> /etc/postgresql/$PGVERSION/main/pg_hba.conf
   - sudo mkdir -p /var/lib/postgresql/archivelog
   - sudo chown postgres:postgres /var/lib/postgresql/archivelog
+  - sudo chmod 777 /etc/postgresql/$PGVERSION/main/postgresql.conf
   - sudo echo "logging_collector = on" >> /etc/postgresql/$PGVERSION/main/postgresql.conf
   - sudo echo "wal_level = hot_standby" >> /etc/postgresql/$PGVERSION/main/postgresql.conf
   - sudo echo "archive_mode = on" >> /etc/postgresql/$PGVERSION/main/postgresql.conf
