@@ -41,3 +41,5 @@ compiler:
 
 script: make installcheck PGUSER=postgres
 
+after_script:
+  - cat /home/travis/build/bwtakacy/pg_rman/pg_rman/regression.diffs
