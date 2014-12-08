@@ -19,7 +19,7 @@ before_install:
   - sudo echo "logging_collector = on" >> /etc/postgresql/$PGVERSION/main/postgresql.conf
   - sudo echo "wal_level = hot_standby" >> /etc/postgresql/$PGVERSION/main/postgresql.conf
   - sudo echo "archive_mode = on" >> /etc/postgresql/$PGVERSION/main/postgresql.conf
-  - sudo echo "archive_command = cp %p /var/lib/postgresql/archivelog/%f" >> /etc/postgresql/$PGVERSION/main/postgresql.conf
+  - sudo echo "archive_command = 'cp %p /var/lib/postgresql/archivelog/%f'" >> /etc/postgresql/$PGVERSION/main/postgresql.conf
   - sudo service postgresql restart
 
 before_script:
