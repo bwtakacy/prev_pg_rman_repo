@@ -20,7 +20,7 @@ before_install:
   - sudo echo "wal_level = hot_standby" >> /etc/postgresql/$PGVERSION/main/postgresql.conf
   - sudo echo "archive_mode = on" >> /etc/postgresql/$PGVERSION/main/postgresql.conf
   - sudo echo "archive_command = cp %p /var/lib/postgresql/archivelog/%f" >> /etc/postgresql/$PGVERSION/main/postgresql.conf
-  - sudo /etc/init.d/postgresql restart
+  - sudo service postgresql restart
 
 before_script:
   - git clone https://github.com/bwtakacy/pg_rman.git pg_rman
@@ -39,5 +39,5 @@ compiler:
 #  - clang
   - gcc
 
-script: make installcheck
+script: make installcheck PGUSER=postgres
 
