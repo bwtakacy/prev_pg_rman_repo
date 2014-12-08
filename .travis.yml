@@ -27,6 +27,8 @@ before_script:
   - cd pg_rman && git describe --alway
   - make
   - sudo make install
+  - echo 'export PATH=$PATH:/usr/lib/postgresql/9.3/bin' >> ~/.bashrc
+  - export PATH=$PATH:/usr/lib/postgresql/9.3/bin
 
 env:
   matrix:
