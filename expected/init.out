@@ -1,4 +1,4 @@
-\! sh sql/init.sh
+\! bash sql/init.sh
 ###### INIT COMMAND TEST-0001 ######
 ###### success with archive_command ######
 0

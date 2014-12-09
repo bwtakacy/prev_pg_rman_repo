@@ -1,4 +1,4 @@
-\! sh sql/option.sh
+\! bash sql/option.sh
 ###### COMMAND OPTION TEST-0001 ######
 ###### help option ######
 pg_rman manage backup/recovery of PostgreSQL database.
