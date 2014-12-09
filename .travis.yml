@@ -12,7 +12,7 @@ before_install:
   - echo 'export PATH=$PATH:/usr/lib/postgresql/$PGVERSION/bin' >> ~/.bashrc
   - export PATH=$PATH:/usr/lib/postgresql/$PGVERSION/bin
   - echo 'export PGDATA=/home/travis/build/bwtakacy/pg_rman/pg_data/$PGVERSION' >> ~/.bashrc
-  - export PGDATA=/home/travis/build/bwtakacy/pg_data/$PGVERSION
+  - export PGDATA=/home/travis/build/bwtakacy/pg_rman/pg_data/$PGVERSION
   - mkdir pg_data
   - cat ~/.bashrc
   - mkdir pg_data/archivelog
