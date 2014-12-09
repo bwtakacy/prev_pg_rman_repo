@@ -24,7 +24,7 @@ OBJS = $(SRCS:.c=.o)
 PG_CPPFLAGS = -I$(libpq_srcdir) -lm
 PG_LIBS = $(libpq_pgport)
 
-REGRESS = init
+REGRESS = init option
 
 PG_CONFIG = pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)
