@@ -9,6 +9,10 @@ before_install:
   - sudo apt-get -y install bc libpam-dev libedit-dev
   - sudo apt-get -y -o Dpkg::Options::=--force-confdef -o Dpkg::Options::="--force-confnew" install postgresql-$PGVERSION postgresql-server-dev-$PGVERSION postgresql-contrib-$PGVERSION
   - sudo service postgresql stop
+  - echo 'export PATH=$PATH:/usr/lib/postgresql/$PGVERSION/bin' >> ~/.bashrc
+  - export PATH=$PATH:/usr/lib/postgresql/$PGVERSION/bin
+  - echo 'export PGDATA=/home/travis/build/bwtakacy/pg_data/$PGVERSION' >> ~/.bashrc
+  - export PGDATA=/home/travis/build/bwtakacy/pg_data/$PGVERSION
   - mkdir pg_data
   - mkdir pg_data/archivelog
   - initdb --no-locale -D pg_data/$PGVERSION
@@ -28,10 +32,6 @@ before_script:
   - cd pg_rman && git describe --alway
   - make
   - sudo make install
-  - echo 'export PATH=$PATH:/usr/lib/postgresql/$PGVERSION/bin' >> ~/.bashrc
-  - export PATH=$PATH:/usr/lib/postgresql/$PGVERSION/bin
-  - echo 'export PGDATA=/home/travis/build/bwtakacy/pg_data/$PGVERSION' >> ~/.bashrc
-  - export PGDATA=/home/travis/build/bwtakacy/pg_data/$PGVERSION
 
 env:
   matrix:
