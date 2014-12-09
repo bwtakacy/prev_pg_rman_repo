@@ -25,7 +25,7 @@ OBJS = $(SRCS:.c=.o)
 PG_CPPFLAGS = -I$(libpq_srcdir)
 PG_LIBS = $(libpq_pgport)
 
-REGRESS = option
+REGRESS = show
 
 PG_CONFIG = pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)
@@ -44,7 +44,7 @@ myinstallcheck:
 	 then \
 		sed -i 's/^wal_level/#wal_level/g' sql/init.sh; \
 		sed -i 's/^wal_level/#wal_level/g' sql/option.sh; \
-#		sed -i 's/^wal_level/#wal_level/g' sql/show.sh; \
+		sed -i 's/^wal_level/#wal_level/g' sql/show.sh; \
 #		sed -i 's/^wal_level/#wal_level/g' sql/delete.sh; \
 #		sed -i 's/^wal_level/#wal_level/g' sql/backup.sh; \
 #		sed -i 's/^wal_level/#wal_level/g' sql/restore.sh; \
@@ -60,7 +60,7 @@ clean: myclean
 myclean:
 	-@sed -i 's/^#wal_level/wal_level/g' sql/init.sh;
 	-@sed -i 's/^#wal_level/wal_level/g' sql/option.sh;
-#	-@sed -i 's/^#wal_level/wal_level/g' sql/show.sh;
+	-@sed -i 's/^#wal_level/wal_level/g' sql/show.sh;
 #	-@sed -i 's/^#wal_level/wal_level/g' sql/delete.sh;
 #	-@sed -i 's/^#wal_level/wal_level/g' sql/backup.sh;
 #	-@sed -i 's/^#wal_level/wal_level/g' sql/restore.sh;
