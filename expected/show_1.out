@@ -21,7 +21,6 @@ OK: CORRUPT status is shown properly.
 ###### Status DELETED ######
 0
 0
-NOTICE:  pg_stop_backup complete, all required WAL segments have been archived
 0
 0
 0
