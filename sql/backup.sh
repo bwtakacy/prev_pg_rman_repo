@@ -239,8 +239,7 @@ pg_ctl restart > /dev/null 2>&1
 sleep 2
 pg_ctl restart > /dev/null 2>&1
 sleep 2
-pg_ctl restart > /dev/null 2>&1
-sleep 2
+pg_ctl restart -w -t 300 > /dev/null 2>&1
 NUM_OF_SRVLOG_FILES_BEFORE=`ls ${SRVLOG_PATH} | wc -l`
 if [ ${NUM_OF_SRVLOG_FILES_BEFORE} -gt 1 ] ; then
 	echo "The number of existing server log files already backuped is greater than 1."
