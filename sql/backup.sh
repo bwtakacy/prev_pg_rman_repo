@@ -235,10 +235,8 @@ echo "Number of remaining archivelog files: ${NUM_OF_ARCLOG_FILES_AFTER}"
 echo '###### BACKUP COMMAND TEST-0009 ######'
 echo '###### full backup with keep-srvlog-files and keep-srvlog-days ######'
 init_catalog
-pg_ctl restart > /dev/null 2>&1
-sleep 2
-pg_ctl restart > /dev/null 2>&1
-sleep 2
+pg_ctl restart -w -t 300 > /dev/null 2>&1
+pg_ctl restart -w -t 300 > /dev/null 2>&1
 pg_ctl restart -w -t 300 > /dev/null 2>&1
 NUM_OF_SRVLOG_FILES_BEFORE=`ls ${SRVLOG_PATH} | wc -l`
 if [ ${NUM_OF_SRVLOG_FILES_BEFORE} -gt 1 ] ; then

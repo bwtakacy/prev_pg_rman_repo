@@ -25,7 +25,7 @@ OBJS = $(SRCS:.c=.o)
 PG_CPPFLAGS = -I$(libpq_srcdir)
 PG_LIBS = $(libpq_pgport)
 
-REGRESS = backup
+REGRESS = restore
 
 PG_CONFIG = pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)
@@ -47,7 +47,7 @@ myinstallcheck:
 		sed -i 's/^wal_level/#wal_level/g' sql/show.sh; \
 		sed -i 's/^wal_level/#wal_level/g' sql/delete.sh; \
 		sed -i 's/^wal_level/#wal_level/g' sql/backup.sh; \
-#		sed -i 's/^wal_level/#wal_level/g' sql/restore.sh; \
+		sed -i 's/^wal_level/#wal_level/g' sql/restore.sh; \
 #		sed -i 's/^wal_level/#wal_level/g' sql/backup_from_standby.sh; \
 	 fi
 #	@if [ `expr "$(MAJORVERSION) < 9.1" | bc` -eq 1 ]; \
@@ -63,6 +63,6 @@ myclean:
 	-@sed -i 's/^#wal_level/wal_level/g' sql/show.sh;
 	-@sed -i 's/^#wal_level/wal_level/g' sql/delete.sh;
 	-@sed -i 's/^#wal_level/wal_level/g' sql/backup.sh;
-#	-@sed -i 's/^#wal_level/wal_level/g' sql/restore.sh;
+	-@sed -i 's/^#wal_level/wal_level/g' sql/restore.sh;
 #	-@sed -i 's/^#wal_level/wal_level/g' sql/backup_from_standby.sh;
 #	-@sed -i 's/^#synchronous_standby_names/synchronous_standby_names/g' sql/backup_from_standby.sh;
