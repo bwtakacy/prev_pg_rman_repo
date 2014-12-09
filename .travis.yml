@@ -16,7 +16,7 @@ before_install:
   - mkdir pg_data
   - mkdir pg_data/archivelog
   - initdb --no-locale -D pg_data/$PGVERSION
-  - chmod 777 /var/run/postgresql
+  - sudo chmod 777 /var/run/postgresql
   - sudo echo "local   all         postgres                          trust" > pg_data/$PGVERSION/pg_hba.conf
   - sudo echo "local   all         all                               trust" >> pg_data/$PGVERSION/pg_hba.conf
   - sudo echo "host    all         all         127.0.0.1/32          trust" >> pg_data/$PGVERSION/pg_hba.conf
