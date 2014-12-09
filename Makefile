@@ -43,26 +43,26 @@ myinstallcheck:
 	@if [ `expr "$(MAJORVERSION) < 9.0" | bc` -eq 1 ]; \
 	 then \
 		sed -i 's/^wal_level/#wal_level/g' sql/init.sh; \
-		sed -i 's/^wal_level/#wal_level/g' sql/option.sh; \
-		sed -i 's/^wal_level/#wal_level/g' sql/show.sh; \
-		sed -i 's/^wal_level/#wal_level/g' sql/delete.sh; \
-		sed -i 's/^wal_level/#wal_level/g' sql/backup.sh; \
-		sed -i 's/^wal_level/#wal_level/g' sql/restore.sh; \
-		sed -i 's/^wal_level/#wal_level/g' sql/backup_from_standby.sh; \
+#		sed -i 's/^wal_level/#wal_level/g' sql/option.sh; \
+#		sed -i 's/^wal_level/#wal_level/g' sql/show.sh; \
+#		sed -i 's/^wal_level/#wal_level/g' sql/delete.sh; \
+#		sed -i 's/^wal_level/#wal_level/g' sql/backup.sh; \
+#		sed -i 's/^wal_level/#wal_level/g' sql/restore.sh; \
+#		sed -i 's/^wal_level/#wal_level/g' sql/backup_from_standby.sh; \
 	 fi
-	@if [ `expr "$(MAJORVERSION) < 9.1" | bc` -eq 1 ]; \
-	 then \
-		sed -i 's/^synchronous_standby_names/#synchronous_standby_names/g' sql/backup_from_standby.sh; \
-	fi
+#	@if [ `expr "$(MAJORVERSION) < 9.1" | bc` -eq 1 ]; \
+#	 then \
+#		sed -i 's/^synchronous_standby_names/#synchronous_standby_names/g' sql/backup_from_standby.sh; \
+#	fi
 
 clean: myclean
 
 myclean:
 	-@sed -i 's/^#wal_level/wal_level/g' sql/init.sh;
-	-@sed -i 's/^#wal_level/wal_level/g' sql/option.sh;
-	-@sed -i 's/^#wal_level/wal_level/g' sql/show.sh;
-	-@sed -i 's/^#wal_level/wal_level/g' sql/delete.sh;
-	-@sed -i 's/^#wal_level/wal_level/g' sql/backup.sh;
-	-@sed -i 's/^#wal_level/wal_level/g' sql/restore.sh;
-	-@sed -i 's/^#wal_level/wal_level/g' sql/backup_from_standby.sh;
-	-@sed -i 's/^#synchronous_standby_names/synchronous_standby_names/g' sql/backup_from_standby.sh;
+#	-@sed -i 's/^#wal_level/wal_level/g' sql/option.sh;
+#	-@sed -i 's/^#wal_level/wal_level/g' sql/show.sh;
+#	-@sed -i 's/^#wal_level/wal_level/g' sql/delete.sh;
+#	-@sed -i 's/^#wal_level/wal_level/g' sql/backup.sh;
+#	-@sed -i 's/^#wal_level/wal_level/g' sql/restore.sh;
+#	-@sed -i 's/^#wal_level/wal_level/g' sql/backup_from_standby.sh;
+#	-@sed -i 's/^#synchronous_standby_names/synchronous_standby_names/g' sql/backup_from_standby.sh;
