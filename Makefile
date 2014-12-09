@@ -25,7 +25,7 @@ OBJS = $(SRCS:.c=.o)
 PG_CPPFLAGS = -I$(libpq_srcdir)
 PG_LIBS = $(libpq_pgport)
 
-REGRESS = init
+REGRESS = option
 
 PG_CONFIG = pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)
@@ -43,7 +43,7 @@ myinstallcheck:
 	@if [ `expr "$(MAJORVERSION) < 9.0" | bc` -eq 1 ]; \
 	 then \
 		sed -i 's/^wal_level/#wal_level/g' sql/init.sh; \
-#		sed -i 's/^wal_level/#wal_level/g' sql/option.sh; \
+		sed -i 's/^wal_level/#wal_level/g' sql/option.sh; \
 #		sed -i 's/^wal_level/#wal_level/g' sql/show.sh; \
 #		sed -i 's/^wal_level/#wal_level/g' sql/delete.sh; \
 #		sed -i 's/^wal_level/#wal_level/g' sql/backup.sh; \
@@ -59,7 +59,7 @@ clean: myclean
 
 myclean:
 	-@sed -i 's/^#wal_level/wal_level/g' sql/init.sh;
-#	-@sed -i 's/^#wal_level/wal_level/g' sql/option.sh;
+	-@sed -i 's/^#wal_level/wal_level/g' sql/option.sh;
 #	-@sed -i 's/^#wal_level/wal_level/g' sql/show.sh;
 #	-@sed -i 's/^#wal_level/wal_level/g' sql/delete.sh;
 #	-@sed -i 's/^#wal_level/wal_level/g' sql/backup.sh;
