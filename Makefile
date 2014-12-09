@@ -25,7 +25,7 @@ OBJS = $(SRCS:.c=.o)
 PG_CPPFLAGS = -I$(libpq_srcdir)
 PG_LIBS = $(libpq_pgport)
 
-REGRESS = backup_from_standby
+REGRESS = init option show delete backup restore backup_from_standby
 
 PG_CONFIG = pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)
