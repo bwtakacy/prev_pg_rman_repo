@@ -1,1 +1,1 @@
-\! sh sql/init.sh
+\! bash sql/init.sh
