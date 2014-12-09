@@ -34,6 +34,7 @@ before_install:
 before_script:
   - git clone https://github.com/bwtakacy/pg_rman.git pg_rman
   - cd pg_rman && git describe --alway
+  - git checkout -b pre-9.2 origin/pre-9.2
   - make
   - sudo make install
 
