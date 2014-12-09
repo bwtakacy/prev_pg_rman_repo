@@ -30,6 +30,8 @@ before_script:
   - sudo make install
   - echo 'export PATH=$PATH:/usr/lib/postgresql/$PGVERSION/bin' >> ~/.bashrc
   - export PATH=$PATH:/usr/lib/postgresql/$PGVERSION/bin
+  - echo 'export PGDATA=/home/travis/build/bwtakacy/pg_data/$PGVERSION' >> ~/.bashrc
+  - export PGDATA=/home/travis/build/bwtakacy/pg_data/$PGVERSION
 
 env:
   matrix:
