@@ -14,7 +14,10 @@ before_install:
   - echo 'export PGDATA=/home/travis/build/bwtakacy/pg_data/$PGVERSION' >> ~/.bashrc
   - export PGDATA=/home/travis/build/bwtakacy/pg_data/$PGVERSION
   - mkdir pg_data
-  - ls pg_data
+  - echo $HOME
+  - cd pg_data
+  - echo $PWD
+  - cd $HOME
   - cat ~/.bashrc
   - mkdir pg_data/archivelog
   - initdb --no-locale -D pg_data/$PGVERSION
