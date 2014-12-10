@@ -17,7 +17,6 @@ before_install:
   - echo 'export PGDATA=/home/travis/build/bwtakacy/pg_rman/pg_data/$PGVERSION' >> ~/.bashrc
   - export PGDATA=/home/travis/build/bwtakacy/pg_rman/pg_data/$PGVERSION
   - mkdir pg_data
-  - cat ~/.bashrc
   - mkdir pg_data/archivelog
   - initdb --no-locale -D pg_data/$PGVERSION
   - sudo chmod 777 /var/run/postgresql
@@ -29,6 +28,7 @@ before_install:
   - if [ $PGVERSION != 8.4 ] ; then sudo echo "wal_level = hot_standby" >> $PGDATA/postgresql.conf ; fi
   - sudo echo "archive_mode = on" >> $PGDATA/postgresql.conf
   - sudo echo "archive_command = 'cp %p /home/travis/build/bwtakacy/pg_rman/pg_data/archivelog/%f'" >> $PGDATA/postgresql.conf
+  - pg_ctl -V
   - pg_ctl -D $PGDATA start
 
 before_script:
