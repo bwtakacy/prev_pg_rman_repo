@@ -10,6 +10,7 @@
 #include "postgres_fe.h"
 #include "catalog/pg_control.h"
 #include <unistd.h>
+#include <fcntl.h>
 
 #include "pg_rman.h"
 
