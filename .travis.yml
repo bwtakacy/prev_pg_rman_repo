@@ -34,7 +34,7 @@ before_install:
   - pg_ctl -D $PGDATA start
 
 before_script:
-  - cd
+  - cd /home/travis/build/bwtakacy/pg_rman
   - git clone https://github.com/bwtakacy/pg_rman.git pg_rman
   - cd pg_rman && git describe --alway
   - make
@@ -52,4 +52,4 @@ compiler:
 script: make installcheck
 
 after_script:
-  - cat /home/travis/build/bwtakacy/pg_rman/postgres/regression.diffs
+  - cat /home/travis/build/bwtakacy/pg_rman/pg_rman/regression.diffs
