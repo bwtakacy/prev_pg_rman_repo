@@ -156,7 +156,7 @@ assign_option(pgut_option *opt, const char *optarg, pgut_optsrc src)
 	{
 		ereport(ERROR,
 			(errcode(ERROR_ARGS),
-			 errmsg("No option is specified."),
+			 errmsg("unrecognized option"),
 			 errhint("Try \"%s --help\" for more information.\n", PROGRAM_NAME)));
 	}
 
