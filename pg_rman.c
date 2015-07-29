@@ -14,7 +14,7 @@
 #include <time.h>
 #include <sys/stat.h>
 
-const char *PROGRAM_VERSION	= "1.2.11";
+const char *PROGRAM_VERSION	= "1.3.0";
 const char *PROGRAM_URL		= "http://sourceforge.net/projects/pg-rman/";
 const char *PROGRAM_EMAIL	= "http://sourceforge.net/p/pg-rman/tickets/";
 
